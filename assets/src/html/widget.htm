@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variables: Your Magic Storage Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #1a4fa3;
+    }
+    .widget {
+      background: white;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .variable-display {
+      background: #e0edff;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #0b3c91;
+      text-align: center;
+      margin-top: 15px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+    }
+    button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #155ec2;
+    }
+    #feedback {
+      margin-top: 12px;
+      color: #0b3c91;
+      font-size: 16px;
+      text-align: center;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Variables: Your Magic Storage Box</h1>
+
+  <div class="widget">
+    <p>A <strong>variable</strong> is like a labeled box where you can store a value. You can change the value whenever you want!</p>
+
+    <div class="variable-display" id="varBox">myNumber = 0</div>
+
+    <input id="valueInput" type="number" placeholder="Type a new value..." />
+    <button id="updateBtn">Update Variable</button>
+
+    <div id="feedback"></div>
+  </div>
+
+  <script>
+    let myNumber = 0;
+
+    document.getElementById("updateBtn").addEventListener("click", () => {
+      const inputValue = document.getElementById("valueInput").value;
+      const feedback = document.getElementById("feedback");
+
+      if (inputValue === "") {
+        feedback.textContent = "Try typing a number!";
+        return;
+      }
+
+      myNumber = Number(inputValue);
+      document.getElementById("varBox").textContent = `myNumber = ${myNumber}`;
+      feedback.textContent = `Nice! You changed the value to ${myNumber}.`;
+    });
+  </script>
+</body>
+</html>
